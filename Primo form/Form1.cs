@@ -40,14 +40,40 @@ namespace Primo_form
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //richiamo la funzione di acquisizione
             aggiunta(textBox1.Text);
+
+            //una volta premuto il pulsante pulisco la textbox per poter inserire una nuova stringa
+            this.textBox1.Text = "";
         }
 
-        //funzioi di servizio
-        public void aggiunta(string nome)
+        private void button2_Click(object sender, EventArgs e)
         {
-            array[dim] = nome;
-            dim++;
+            //richiamo la funzione di stampa
+            stampa();
         }
+
+        //funzioni di servizio
+
+            //funzione di acquisizione
+            public void aggiunta(string nome)
+            {
+                //aggiungere all'array il valore inserito nella textbox
+                array[dim] = nome;
+                dim++;
+            }
+
+            //funzione di stampa
+            public void stampa()
+            {
+                //cancellamento messaggio precedente
+                this.label2.Text = "";
+
+                //stampa del messaggio corrente
+                for (int i = 0; i < dim; i++)
+                {
+                    this.label2.Text += array[i] + " ";
+                }
+            }
     }
 }
