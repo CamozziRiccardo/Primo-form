@@ -37,23 +37,26 @@ namespace Primo_form
         {
             
         }
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //richiamo la funzione di acquisizione
             aggiunta(textBox1.Text);
 
+            //aggiunta degli elementi nella listview attraverso una funzione
+            stampa(textBox1.Text);
+
             //una volta premuto il pulsante pulisco la textbox per poter inserire una nuova stringa
             this.textBox1.Text = "";
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            //richiamo la funzione di stampa
-            stampa();
-        }
 
         //funzioni di servizio
+        //{
 
             //funzione di acquisizione
             public void aggiunta(string nome)
@@ -64,16 +67,11 @@ namespace Primo_form
             }
 
             //funzione di stampa
-            public void stampa()
+            public void stampa(string nome)
             {
-                //cancellamento messaggio precedente
-                this.label2.Text = "";
-
-                //stampa del messaggio corrente
-                for (int i = 0; i < dim; i++)
-                {
-                    this.label2.Text += array[i] + " ";
-                }
+                this.listView1.Items.Add(nome);
             }
+
+        //}
     }
 }
