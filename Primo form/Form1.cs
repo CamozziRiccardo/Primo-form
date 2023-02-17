@@ -13,7 +13,7 @@ namespace Primo_form
 {
     public partial class Form1 : Form
     {
-        //dichiarazione variabili
+
         public int dim = 0;
         public int pos = 0;
         public string[] array;
@@ -62,23 +62,15 @@ namespace Primo_form
         private void button4_Click(object sender, EventArgs e)
         {
             mod(textBox4.Text);
-            stampa(textBox4.Text);
             this.textBox4.Text = "";
         }
 
-
-        //funzioni di servizio
-        //{
-
-            //funzione di acquisizione
             public void aggiunta(string nome)
                 {
-                    //aggiungere all'array il valore inserito nella textbox
                     array[dim] = nome;
                     dim++;
                 }
 
-            //funzione di stampa
             public void stampa(string nome)
             {
                 if (pos == 0)
@@ -95,12 +87,10 @@ namespace Primo_form
                 }
             }
 
-            //funzione di cancellamento
             public void canc(string name)
             {
                 ricerca(name);
                 this.listView1.Items.Clear();
-                //scambio variabili per il cancellamento
                 for(int i = pos - 1; i < dim; i++)
                 {
                     array[i] = array[i + 1];
@@ -109,14 +99,13 @@ namespace Primo_form
                 stampa(name);
             }
 
-            //funzione di modifica
             public void mod(string name)
             {
                 this.listView1.Items.Clear();
+                stampa(name);
                 array[pos - 1] = name;
             }
 
-            //funzione di ricerca per cancellamento e modifica
             public void ricerca(string name)
                 {
                     for (int i = 0; i < dim; i++)
@@ -129,6 +118,5 @@ namespace Primo_form
                     }
                 }
 
-        //}
     }
 }
