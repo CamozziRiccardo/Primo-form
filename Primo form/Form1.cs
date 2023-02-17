@@ -14,8 +14,8 @@ namespace Primo_form
     public partial class Form1 : Form
     {
         //dichiarazione variabili
-        public int dim = 0;
-        public int pos = 0;
+        public int dim;
+        public int pos;
         public string[] array;
 
         public Form1()
@@ -23,6 +23,7 @@ namespace Primo_form
             InitializeComponent();
             array = new string[100];
             dim = 0;
+            pos = 0;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -76,6 +77,9 @@ namespace Primo_form
                 //inserisco il testo nella textbox nell'array
                 array[dim] = nome;
                 dim++;
+
+                //messaggio di aggiunta
+                MessageBox.Show("Elemento aggiunto");
             }
 
             //funzione di stampa
@@ -118,6 +122,9 @@ namespace Primo_form
 
                 //richiamo la funzione di stampa
                 stampa(name);
+
+                //messaggio di cancellamento
+                MessageBox.Show("Elemento cancellato");
             }
 
             //funzione di modifica
@@ -131,7 +138,10 @@ namespace Primo_form
 
                 //richiamo la funzione di stampa
                 stampa(name);
-            }
+
+                //messaggio di modifica
+                MessageBox.Show("Elemento modificato");
+        }
 
             //funzione di ricerca per cancellamento e modifica
             public void ricerca(string name)
@@ -139,13 +149,22 @@ namespace Primo_form
                 //ciclo di ricerca sequenziale
                 for (int i = 0; i < dim; i++)
                 {
-                    //se la stringa inserita corrisponde con un elemento dell'array, prendo la posizione e rompo il ciclo
+                    //se la stringa inserita corrisponde con un elemento dell'array...
                     if (array[i] == name)
                     {
+                        //... prendo la posizione...
                         pos = i + 1;
+
+                        //... stampo il messaggio di ritrovamento...
+                        MessageBox.Show("Elemento trovato");
+
+                        //... e rompo il ciclo
                         break;
                     }
                 }
+
+                //messaggio di non ritrovamento
+                MessageBox.Show("Elemento non trovato");
             }
 
         //}
