@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace Primo_form
 {
@@ -25,26 +26,6 @@ namespace Primo_form
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label2_Click(object sender, EventArgs e)
         {
 
         }
@@ -69,8 +50,20 @@ namespace Primo_form
         private void button2_Click(object sender, EventArgs e)
         {
             canc(textBox2.Text);
-
             this.textBox2.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ricerca(textBox3.Text);
+            this.textBox3.Text = "";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            mod(textBox4.Text);
+            stampa(textBox4.Text);
+            this.textBox4.Text = "";
         }
 
 
@@ -79,11 +72,11 @@ namespace Primo_form
 
             //funzione di acquisizione
             public void aggiunta(string nome)
-            {
-                //aggiungere all'array il valore inserito nella textbox
-                array[dim] = nome;
-                dim++;
-            }
+                {
+                    //aggiungere all'array il valore inserito nella textbox
+                    array[dim] = nome;
+                    dim++;
+                }
 
             //funzione di stampa
             public void stampa(string nome)
@@ -116,18 +109,25 @@ namespace Primo_form
                 stampa(name);
             }
 
+            //funzione di modifica
+            public void mod(string name)
+            {
+                this.listView1.Items.Clear();
+                array[pos - 1] = name;
+            }
+
             //funzione di ricerca per cancellamento e modifica
             public void ricerca(string name)
-            {
-                for (int i = 0; i < dim; i++)
                 {
-                    if (array[i] == name)
+                    for (int i = 0; i < dim; i++)
                     {
-                        pos = i + 1;
-                        break;
+                        if (array[i] == name)
+                        {
+                            pos = i + 1;
+                            break;
+                        }
                     }
                 }
-            }
 
         //}
     }
