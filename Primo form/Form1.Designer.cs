@@ -116,7 +116,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(178, 23);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Inserisci una stringa da modificare";
+            this.label3.Text = "Inserisci una stringa da cercare";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox3

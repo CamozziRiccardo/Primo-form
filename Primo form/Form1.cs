@@ -13,7 +13,7 @@ namespace Primo_form
 {
     public partial class Form1 : Form
     {
-
+        //dichiarazione variabili
         public int dim = 0;
         public int pos = 0;
         public string[] array;
@@ -49,6 +49,7 @@ namespace Primo_form
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //richiamo la funzione di cancellamento
             canc(textBox2.Text);
             this.textBox2.Text = "";
         }
@@ -65,58 +66,88 @@ namespace Primo_form
             this.textBox4.Text = "";
         }
 
-            public void aggiunta(string nome)
-                {
-                    array[dim] = nome;
-                    dim++;
-                }
 
+        //funzioni di servizio
+        //{
+
+            //funzione di acquisizione
+            public void aggiunta(string nome)
+            {
+                //inserisco il testo nella textbox nell'array
+                array[dim] = nome;
+                dim++;
+            }
+
+            //funzione di stampa
             public void stampa(string nome)
             {
+                //se non è stata effettuata una ricerca, semplicemente stampare il valore inserito
                 if (pos == 0)
                 {
                     this.listView1.Items.Add(nome);
                 }
+                //nel caso fosse stata effettuata una ricerca, per cancellamento o modifica, ristampare l'intero array...
                 else
                 {
                     for (int i = 0; i < dim; i++)
                     {
                         this.listView1.Items.Add(array[i]);
                     }
+                    //... e resettare la variabile pos per poter decidere se inserire normalmente una stringa singola
                     pos = 0;
                 }
             }
 
+            //funzione di cancellamento
             public void canc(string name)
             {
+                //richiamo la funzione di ricerca
                 ricerca(name);
+
+                //pulisco la listview per poterla ristampare completamante
                 this.listView1.Items.Clear();
+
+                //scambio variabili per il cancellamento
                 for(int i = pos - 1; i < dim; i++)
                 {
                     array[i] = array[i + 1];
                 }
+
+                //diminuzione della grandezza dell'array per la cancellazione
                 dim--;
+
+                //richiamo la funzione di stampa
                 stampa(name);
             }
 
+            //funzione di modifica
             public void mod(string name)
             {
+                //pulisco la listview per poterla ristampare completamante
                 this.listView1.Items.Clear();
-                stampa(name);
+
+                //sostituisco la parola da modificare nella posizione trovata attraverso la ricerca
                 array[pos - 1] = name;
+
+                //richiamo la funzione di stampa
+                stampa(name);
             }
 
+            //funzione di ricerca per cancellamento e modifica
             public void ricerca(string name)
+            {
+                //ciclo di ricerca sequenziale
+                for (int i = 0; i < dim; i++)
                 {
-                    for (int i = 0; i < dim; i++)
+                    //se la stringa inserita corrisponde con un elemento dell'array, prendo la posizione e rompo il ciclo
+                    if (array[i] == name)
                     {
-                        if (array[i] == name)
-                        {
-                            pos = i + 1;
-                            break;
-                        }
+                        pos = i + 1;
+                        break;
                     }
                 }
+            }
 
+        //}
     }
 }
