@@ -162,9 +162,13 @@ namespace Primo_form
                         break;
                     }
                 }
+                //nel caso non sia stato trovato l'elemento...
+                if(pos == 0)
+                {
+                    //... stampo il messaggio di non ritrovamento
+                    MessageBox.Show("Elemento non trovato");
+                }
 
-                //messaggio di non ritrovamento
-                MessageBox.Show("Elemento non trovato");
             }
 
         //}
