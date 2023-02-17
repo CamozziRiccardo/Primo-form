@@ -37,6 +37,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -81,9 +84,9 @@
             // label2
             // 
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(218, 9);
+            this.label2.Location = new System.Drawing.Point(218, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 23);
+            this.label2.Size = new System.Drawing.Size(200, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Inserisci una stringa da cancellare";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -93,7 +96,7 @@
             // 
             this.button2.Location = new System.Drawing.Point(218, 58);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(194, 23);
+            this.button2.Size = new System.Drawing.Size(200, 23);
             this.button2.TabIndex = 5;
             this.button2.Text = "Invio";
             this.button2.UseVisualStyleBackColor = true;
@@ -103,9 +106,35 @@
             // 
             this.textBox2.Location = new System.Drawing.Point(218, 32);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(194, 20);
+            this.textBox2.Size = new System.Drawing.Size(200, 20);
             this.textBox2.TabIndex = 6;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(424, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(200, 23);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Inserisci una stringa da modificare";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(427, 32);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(197, 20);
+            this.textBox3.TabIndex = 8;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(427, 58);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(197, 23);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Invio";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -113,6 +142,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
@@ -139,6 +171,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button button3;
     }
 }
 

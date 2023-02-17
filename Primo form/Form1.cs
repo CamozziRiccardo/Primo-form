@@ -96,11 +96,9 @@ namespace Primo_form
                 {
                     for (int i = 0; i < dim; i++)
                     {
-                        if (i + 1 != pos)
-                        {
-                            this.listView1.Items.Add(array[i]);
-                        }
+                        this.listView1.Items.Add(array[i]);
                     }
+                    pos = 0;
                 }
             }
 
@@ -109,22 +107,26 @@ namespace Primo_form
             {
                 ricerca(name);
                 this.listView1.Items.Clear();
+                //scambio variabili per il cancellamento
+                for(int i = pos - 1; i < dim; i++)
+                {
+                    array[i] = array[i + 1];
+                }
+                dim--;
                 stampa(name);
             }
 
             //funzione di ricerca per cancellamento e modifica
-            public int ricerca(string name)
+            public void ricerca(string name)
             {
-                for(int i = 0; i < dim; i++)
+                for (int i = 0; i < dim; i++)
                 {
                     if (array[i] == name)
                     {
                         pos = i + 1;
-                        return 0;
+                        break;
                     }
                 }
-
-                return 0;
             }
 
         //}
