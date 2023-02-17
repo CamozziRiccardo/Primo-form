@@ -13,7 +13,8 @@ namespace Primo_form
     public partial class Form1 : Form
     {
         //dichiarazione variabili
-        public int dim;
+        public int dim = 0;
+        public int pos = 0;
         public string[] array;
 
         public Form1()
@@ -33,10 +34,21 @@ namespace Primo_form
 
         }
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
             
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -54,6 +66,13 @@ namespace Primo_form
             this.textBox1.Text = "";
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            canc(textBox2.Text);
+
+            this.textBox2.Text = "";
+        }
+
 
         //funzioni di servizio
         //{
@@ -69,7 +88,43 @@ namespace Primo_form
             //funzione di stampa
             public void stampa(string nome)
             {
-                this.listView1.Items.Add(nome);
+                if (pos == 0)
+                {
+                    this.listView1.Items.Add(nome);
+                }
+                else
+                {
+                    for (int i = 0; i < dim; i++)
+                    {
+                        if (i + 1 != pos)
+                        {
+                            this.listView1.Items.Add(array[i]);
+                        }
+                    }
+                }
+            }
+
+            //funzione di cancellamento
+            public void canc(string name)
+            {
+                ricerca(name);
+                this.listView1.Items.Clear();
+                stampa(name);
+            }
+
+            //funzione di ricerca per cancellamento e modifica
+            public int ricerca(string name)
+            {
+                for(int i = 0; i < dim; i++)
+                {
+                    if (array[i] == name)
+                    {
+                        pos = i + 1;
+                        return 0;
+                    }
+                }
+
+                return 0;
             }
 
         //}
